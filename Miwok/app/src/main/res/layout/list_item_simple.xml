@@ -6,31 +6,48 @@
 
     <LinearLayout
         android:id="@+id/text_layout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="5"
-        android:padding="16dp">
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/miwok_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                tools:text="lutti"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="bottom"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/default_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                tools:text="one"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="top"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/miwok_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:text="lutti"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:gravity="bottom"
+            android:id="@+id/play_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:gravity="right|center_vertical"
+            android:text=" > "
+            android:paddingRight="16dp"
             android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/default_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:text="one"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:gravity="top"
-            android:textColor="@android:color/white"/>
     </LinearLayout>
 </LinearLayout>

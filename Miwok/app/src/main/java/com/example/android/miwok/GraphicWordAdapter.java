@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,16 +35,29 @@ public class GraphicWordAdapter extends ArrayAdapter<Word>{
                     R.layout.list_item_with_icon, parent, false);
         }
 
-        Word currentWord = getItem(position);
+        final Word currentWord = getItem(position);
         TextView englishTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
         englishTextView.setText(currentWord.getEnglishTranslation());
 
         TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_text_view);
         miwokTextView.setText(currentWord.getMiwokTranslation());
 
+        final MediaPlayer player = MediaPlayer.create(getContext(), currentWord.getSoundId());
         LinearLayout textLayout = (LinearLayout)listItemView.findViewById(R.id.text_layout);
         int realColor = ContextCompat.getColor(getContext(), this.colorId);
         textLayout.setBackgroundColor(realColor);
+        textLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(player != null){
+                    if(player.isPlaying()){
+                        player.pause();
+                    }else{
+                        player.start();
+                    }
+                }
+            }
+        });
 
 
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
