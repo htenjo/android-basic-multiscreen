@@ -14,7 +14,7 @@ public class FamilyActivity extends AppCompatActivity {
         setContentView(R.layout.world_list);
         List<Word> words = buildColorList();
 
-        WordAdapter itemsAdapter = new WordAdapter(this, words);
+        GraphicWordAdapter itemsAdapter = new GraphicWordAdapter(this, words, R.color.category_family);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
     }
@@ -22,17 +22,16 @@ public class FamilyActivity extends AppCompatActivity {
 
     private List<Word> buildColorList(){
         List<Word> numbers = new ArrayList<>();
-        numbers.add(new Word("father","әpә"));
-        numbers.add(new Word("mother","әṭa"));
-        numbers.add(new Word("son","angsi"));
-        numbers.add(new Word("daughter","tune"));
-        numbers.add(new Word("older brother","taachi"));
-        numbers.add(new Word("younger brother","chalitti"));
-        numbers.add(new Word("older sister","teṭe"));
-        numbers.add(new Word("younger sister","kolliti"));
-        numbers.add(new Word("grandmother","ama"));
-        numbers.add(new Word("grandfather","paapa"));
-
+        numbers.add(new Word("father","әpә", R.drawable.family_father));
+        numbers.add(new Word("mother","әṭa", R.drawable.family_mother));
+        numbers.add(new Word("son","angsi", R.drawable.family_son));
+        numbers.add(new Word("daughter","tune", R.drawable.family_daughter));
+        numbers.add(new Word("older brother","taachi", R.drawable.family_older_brother));
+        numbers.add(new Word("younger brother","chalitti", R.drawable.family_younger_brother));
+        numbers.add(new Word("older sister","teṭe", R.drawable.family_older_sister));
+        numbers.add(new Word("younger sister","kolliti", R.drawable.family_younger_sister));
+        numbers.add(new Word("grandmother","ama", R.drawable.family_grandmother));
+        numbers.add(new Word("grandfather","paapa", R.drawable.family_grandmother));
         return numbers;
     }
 }
