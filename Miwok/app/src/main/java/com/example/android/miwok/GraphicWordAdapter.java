@@ -46,19 +46,6 @@ public class GraphicWordAdapter extends ArrayAdapter<Word>{
         LinearLayout textLayout = (LinearLayout)listItemView.findViewById(R.id.text_layout);
         int realColor = ContextCompat.getColor(getContext(), this.colorId);
         textLayout.setBackgroundColor(realColor);
-        textLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(player != null){
-                    if(player.isPlaying()){
-                        player.pause();
-                    }else{
-                        player.start();
-                    }
-                }
-            }
-        });
-
 
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.miwok_image_view);

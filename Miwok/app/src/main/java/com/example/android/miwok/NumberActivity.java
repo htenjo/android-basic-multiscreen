@@ -1,26 +1,31 @@
 package com.example.android.miwok;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ListView;
+import android.widget.ArrayAdapter;
+
+import com.example.android.miwok.activities.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberActivity extends AppCompatActivity {
-
+public class NumberActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.world_list);
-        List<Word> numbers = buildNumberList();
-
-        GraphicWordAdapter itemsAdapter = new GraphicWordAdapter(this, numbers, R.color.category_numbers);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(itemsAdapter);
     }
 
-    private List<Word> buildNumberList(){
+    @Override
+    protected ArrayAdapter buildAdapter() {
+        return new GraphicWordAdapter(this, this.words, R.color.category_numbers);
+    }
+
+    @Override
+    protected BaseActivity getInstance() {
+        return NumberActivity.this;
+    }
+
+    @Override
+    protected List<Word> buildWords() {
         List<Word> numbers = new ArrayList<>();
         numbers.add(new Word("One","lutti", R.drawable.number_one, R.raw.number_one));
         numbers.add(new Word("Two","otiiko", R.drawable.number_two, R.raw.number_two));

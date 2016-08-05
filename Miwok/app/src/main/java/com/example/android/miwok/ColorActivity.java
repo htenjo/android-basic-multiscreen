@@ -1,27 +1,32 @@
 package com.example.android.miwok;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.widget.ArrayAdapter;
+
+import com.example.android.miwok.activities.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColorActivity extends AppCompatActivity {
+public class ColorActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.world_list);
-        List<Word> words = buildColorList();
-
-        GraphicWordAdapter itemsAdapter = new GraphicWordAdapter(this, words, R.color.category_colors);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(itemsAdapter);
     }
 
+    @Override
+    protected ArrayAdapter buildAdapter() {
+        return new GraphicWordAdapter(this, this.words, R.color.category_colors);
+    }
 
-    private List<Word> buildColorList(){
+    @Override
+    protected BaseActivity getInstance() {
+        return ColorActivity.this;
+    }
+
+    @Override
+    protected List<Word> buildWords(){
         List<Word> numbers = new ArrayList<>();
         numbers.add(new Word("red","weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
         numbers.add(new Word("green","chokokki", R.drawable.color_green, R.raw.color_green));

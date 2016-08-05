@@ -1,26 +1,31 @@
 package com.example.android.miwok;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.widget.ArrayAdapter;
+
+import com.example.android.miwok.activities.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhraseActivity extends AppCompatActivity {
+public class PhraseActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.world_list);
-        List<Word> words = buildColorList();
-
-        WordAdapter itemsAdapter = new WordAdapter(this, words, R.color.category_phrases);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(itemsAdapter);
     }
 
+    @Override
+    protected ArrayAdapter buildAdapter() {
+        return new WordAdapter(this, this.words, R.color.category_phrases);
+    }
 
-    private List<Word> buildColorList(){
+    @Override
+    protected BaseActivity getInstance() {
+        return PhraseActivity.this;
+    }
+
+    @Override
+    protected List<Word> buildWords(){
         List<Word> numbers = new ArrayList<>();
         numbers.add(new Word("Where are you going?","minto wuksus", Word.RESOURCE_NOT_FOUND, R.raw.phrase_where_are_you_going));
         numbers.add(new Word("What is your name?","tinnә oyaase'nә", Word.RESOURCE_NOT_FOUND, R.raw.phrase_what_is_your_name));
