@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.android.miwok.R;
-import com.example.android.miwok.Word;
+import com.example.android.miwok.model.Word;
 
 import java.util.List;
 
@@ -31,6 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.world_list);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         words = buildWords();

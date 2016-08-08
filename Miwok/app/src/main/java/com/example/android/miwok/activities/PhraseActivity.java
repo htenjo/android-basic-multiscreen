@@ -1,9 +1,11 @@
-package com.example.android.miwok;
+package com.example.android.miwok.activities;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
-import com.example.android.miwok.activities.BaseActivity;
+import com.example.android.miwok.R;
+import com.example.android.miwok.model.Word;
+import com.example.android.miwok.adapters.WordAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
