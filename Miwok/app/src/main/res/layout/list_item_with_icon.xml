@@ -43,15 +43,11 @@
                     android:gravity="top"/>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/play_text"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="@android:color/white"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:src="@drawable/play_arrow_24dp"
                 android:gravity="right|center_vertical"
-                android:text=" > "
-                android:paddingRight="16dp"
-                android:textStyle="bold"/>
+                android:paddingRight="16dp"/>
         </LinearLayout>
 </LinearLayout>
